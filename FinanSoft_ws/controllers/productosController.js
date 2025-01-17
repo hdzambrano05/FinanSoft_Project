@@ -30,5 +30,21 @@ module.exports = {
                 res.status(400).send(error));
     },
 
+    add(req, res) {
+        return productos
+            .create({
+                nombre: req.body.nombre,
+                descripcion: req.body.descripcion,
+                cantidad: req.body.cantidad,
+                precio_venta: req.body.precio_venta,
+                precio_compra: req.body.precio_compra,
+                proveedor_id: req.body.proveedor_id,
+                categoria : req.body.categoria,
+
+            })
+            .then((project) => res.status(201).send(project))
+            .catch((error) => res.status(400).send(error));
+    },
+
 
 }

@@ -29,4 +29,16 @@ module.exports = {
                 res.status(400).send(error));
     },
 
+    add(req, res) {
+        return ganancias
+            .create({
+                total_hoy: req.body.total_hoy,
+                total_semanal: req.body.total_semanal,
+                total_mes: req.body.total_mes,
+
+            })
+            .then((project) => res.status(201).send(project))
+            .catch((error) => res.status(400).send(error));
+    },
+
 }

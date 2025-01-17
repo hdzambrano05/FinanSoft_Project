@@ -29,4 +29,17 @@ module.exports = {
                 res.status(400).send(error));
     },
 
+    add(req, res) {
+        return proveedores
+            .create({
+                nombre: req.body.nombre,
+                direccion: req.body.direccion,
+                telefono: req.body.telefono,
+                email: req.body.email,
+            })
+            .then((project) => res.status(201).send(project))
+            .catch((error) => res.status(400).send(error));
+    },
+
+
 }
